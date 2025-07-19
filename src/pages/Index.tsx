@@ -6,6 +6,8 @@ import { AirdropCard } from '@/components/AirdropCard'
 import { ChatBot } from '@/components/ChatBot'
 import { SearchFilters } from '@/components/SearchFilters'
 import { FeedbackSection } from '@/components/FeedbackSection'
+import { WalletVerifySection } from '@/components/WalletVerifySection'
+import { LeaderboardSection } from '@/components/LeaderboardSection'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -149,15 +151,15 @@ const Index = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-            Hunt Airdrops
+            Discover Real Airdrops
             <br />
             <span className="bg-gradient-to-r from-white via-primary-glow to-white bg-clip-text text-transparent">
-              Avoid Scams
+              Track Eligibility. Avoid Scams.
             </span>
           </h1>
           
           <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Your AI assistant for discovering legitimate airdrops, checking eligibility, and maximizing rewards while staying safe from scams.
+            Your AI assistant for discovering legitimate airdrops, checking eligibility, and maximizing rewards while staying safe from scams. Powered by AI.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -226,6 +228,11 @@ const Index = () => {
           </Card>
         </div>
 
+        {/* Wallet Verification */}
+        <div className="mb-8">
+          <WalletVerifySection />
+        </div>
+
         {/* Search and Filters */}
         <div className="mb-12">
           <SearchFilters onSearch={handleSearch} onFilterChange={handleFilterChange} />
@@ -275,7 +282,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* AI Chatbot Section */}
+        {/* AI Chatbot and Leaderboard Section */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-foreground mb-4">Ask Your AI Assistant</h2>
@@ -283,7 +290,15 @@ const Index = () => {
               Get instant answers about airdrop eligibility, safety checks, and step-by-step guidance
             </p>
           </div>
-          <ChatBot />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2">
+              <ChatBot />
+            </div>
+            <div>
+              <LeaderboardSection />
+            </div>
+          </div>
         </section>
       </div>
 
@@ -303,6 +318,7 @@ const Index = () => {
             Making airdrop hunting safer and more profitable for everyone
           </p>
           <div className="flex justify-center space-x-6 text-sm text-muted-foreground">
+            <button className="hover:text-primary transition-colors">📤 List your airdrop here</button>
             <button className="hover:text-primary transition-colors">Privacy Policy</button>
             <button className="hover:text-primary transition-colors">Terms of Service</button>
             <button className="hover:text-primary transition-colors">Documentation</button>
